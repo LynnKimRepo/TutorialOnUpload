@@ -1,0 +1,174 @@
+--Use Northwind
+--Go
+
+---- * all vs fields
+--Select * From Employees
+--Select LastName, FirstName From Employees
+
+----Delimitors using [] or ""
+--Select OrderId From [Order Details] 
+
+----Concatonation of Fields
+--Select FirstName + LastName "Full Name" From Employees
+
+--Select e.LastName, e.FirstName
+--From Employees e
+
+----Try to alias your tables. not a bad habit.
+--Select *
+--From Employees e Join Orders o On e.EmployeeID =o.EmployeeID
+--Join Customers c on o.CustomerID = c.CustomerID
+
+--Select Distinct City From Employees
+
+----identifiers: name that be give to a db, table, 
+----columns, views..
+----Rules to follow:
+----first character a-z, A-Z, @, #
+--declare @today datetime 
+--select @today = GetDate()
+--print @today
+----go
+--print @today
+
+----# the temp tables
+----second character a-z, 0-9, @, $, #, _
+--declare @a@$#1234 int
+--set @a@$#1234 = 5
+--Print @a@$#1234
+
+----cannot be a resevered keyword
+--Select * From Employees
+----No embedded spaces ex: needs delimier brackets for [order details] to work
+
+----where clause
+--Select ContactName, Country
+--From Customers
+--Where Country = 'Germany'
+
+--Select ProductName, UnitPrice
+--From Products
+--Where UnitPrice > 18
+
+--Select ContactName, Country
+--From Customers
+--Where Country <> 'Germany'
+
+----More than 1 where statement
+----and/or
+
+----Orders tat ship to the USA and Canada
+--Select OrderId, CustomerId, ShipCountry
+--From Orders
+--Where ShipCountry = 'USA' Or ShipCountry = 'Canada'
+
+--Select OrderId, CustomerId, ShipCountry
+--From Orders
+--Where ShipCountry in ('USA', 'Canada')
+
+----Retrieving products greater than 30 less than 40
+--Select ProductName, UnitPrice
+--From Products
+--Where UnitPrice > 30 AND UnitPrice < 40
+
+----between
+--Select ProductName, UnitPrice
+--From Products
+--Where UnitPrice Between 30 AND 40
+
+--Select OrderId, CustomerId, ShipCountry
+--From Orders
+--Where ShipCountry NOT in ('USA', 'Canada')
+
+--Select OrderId, CustomerId, ShipCountry
+--From Orders
+--Where NOt ShipCountry in ('USA', 'Canada')
+
+--Select ProductName, UnitPrice
+--From Products
+--Where UnitPrice Not Between 30 AND 40
+
+
+----null value: a field with no value
+--Select *
+--From Employees
+--Where Region IS NULL
+
+--Select *
+--From Employees
+--Where Region IS Not NULL
+
+--Create Table TestSalary( 
+--EId int primary key identity(1, 1),
+--Salary money,
+--Comm money)
+
+--Insert Into TestSalary values (2000, 500), (2000, Null), (1500, 500), (2000, 0), (null, 500), (null, null)
+--Select * From TestSalary
+
+--Select eId, ISNULL(Salary, 0) as Salary, IsNull(Comm,0) [Comm], IsNull(salary, 0) + ISNull(comm, 0) 
+--[Total] From TestSalary
+
+
+----Like operator: Regex (regular expression)
+
+--Select FirstName, LastName
+--FRom Employees
+--Where LastName Like '%o%'
+
+Select ContactNAme, PostalCode
+From Customers 
+Where PostalCode Like '[0-3]%'
+
+Select ContactNAme, PostalCode
+From Customers 
+Where PostalCode Like '[^0-3]%'
+
+
+Select ContactNAme, PostalCode
+From Customers 
+Where ContactName Like 'A[^l-n]%'
+
+Select * 
+From Employees
+Where LastName Like 'Fuller'
+
+Select ContactName, City
+From Customers 
+Where City != 'Boston'
+Order By ContactName desc
+
+--Joins: Combine the rows of the tables to output a result set based on related columns between them
+
+Select e.FirstName + ' ' + e.LastName [Full Name], e.City, c.ContactName, c.City
+From Employees e cross Join Customers c 
+
+-- Inner join: return the records that have matching values in both tables
+--Find employees who have deal with any orders
+Select e.EmployeeId, e.FirstName + ' ' + e.LastNAme [Full Name], o.OrderDate
+From Employees e Inner Join Orders o On e.EmployeeID = o.EmployeeID
+
+Select e.EmployeeId, e.FirstName + ' ' + e.LastNAme [Full Name], o.OrderDate
+From Employees e Join Orders o On e.EmployeeID = o.EmployeeID
+
+Select e.EmployeeId, e.FirstName + ' ' + e.LastNAme [Full Name], o.OrderDate
+From Employees e, Orders o 
+Where e.EmployeeID = o.EmployeeID
+
+Select c.ContactName, o.Orderdate
+From Customers c Full Join Orders o On 1= 1
+
+Select ISNULL(S.City, 'No Sup City'), IsNull(e.City, 'No Emp City')
+From Suppliers s Full Join Employees e On s.City = e.City
+
+--Inner, Left outer, Right outer, Full outer join, Cross joins, Self Join
+
+Select FirstName, EmployeeID, ReportsTo
+From Employees
+
+--Find employees with their manager Name
+Select e.FirstName + ' ' + e.LastName [Employee], m.FirstName + ' ' + m.LastName [Manager]
+From Employees e Inner Join Employees m On e.EmployeeID = m.ReportsTo
+
+Select e.FirstName + ' ' + e.LastName [Employee], m.FirstName + ' ' + m.LastName [Manager]
+From Employees e Right Join Employees m On e.EmployeeID = m.ReportsTo
