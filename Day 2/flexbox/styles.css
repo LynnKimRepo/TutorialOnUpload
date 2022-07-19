@@ -1,0 +1,38 @@
+section{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+div{
+    height: 200px;
+}
+
+.flexOne{
+     background-color: red;
+     flex-basis:  200px
+}
+
+.flexTwo{
+    background-color: orange;
+    flex-basis: 200px;
+}
+
+.flexThree{
+    background-color: yellow;
+    flex-basis: 200px;
+
+}
+
+.flexFour{
+    background-color: green;
+    flex-basis: 200px;
+
+}
+
+.flexFive{
+    background-color: blue;
+    flex-basis: 200px;
+}

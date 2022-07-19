@@ -1,0 +1,18 @@
+@media screen and (max-width: 700px){
+    .changeColor{
+        color:blue;
+    }
+}
+
+
+@media screen and (min-width: 800px) and (max-width: 1200px){
+    .changeColor{
+        color:brown;
+    }
+
+    .changeLocation{
+        position: absolute;
+        top:200px;
+    }
+}
+

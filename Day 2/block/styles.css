@@ -1,0 +1,12 @@
+div{
+    display: inline;
+}
+
+article{
+    display:inline-block;
+    margin:20px;
+}
+
+span{
+    margin:300px;
+}

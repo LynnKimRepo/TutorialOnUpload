@@ -1,0 +1,40 @@
+html{
+    font-size: 20px;
+    width: auto;
+}
+
+li{
+    font-size: 2rem;
+}
+
+.static{
+    background-color: aqua;
+    font-size: 1rem;
+    position: static;
+    top:100px;   
+}
+
+.relative{
+    position: relative;
+    top:10px;
+    background-color: green;
+}
+
+.absolute{
+    position: absolute;
+    top: 10rem;
+    left:200px;
+    background-color: green;
+}
+
+.fixed{
+    position:fixed;
+    top: 10rem;
+    left:200px;
+}
+
+
+
+p{
+    height: 1000px;
+}

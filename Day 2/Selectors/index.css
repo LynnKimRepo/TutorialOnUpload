@@ -1,0 +1,55 @@
+.classSelector{
+    font-size: 20px;
+}
+.secondClassSelector{
+    font-size: 30px;
+}
+
+#idSelector{
+    color: blue;
+}
+
+.classVsId{
+    color:brown;
+}
+
+div>.childSelector{
+    color:red;
+}
+
+main + section, header + section, nav{
+    background-color: rgb(52, 189, 143);
+}
+
+/*
+Commas as just known as "and"
+*/
+
+div .descSelector{
+    color:rgb(233, 82, 240)
+}
+
+[href], h3{
+    color: yellowgreen;
+}
+
+
+section:last-child{
+    color:darkorange;
+}
+
+
+li:nth-of-type(2n){
+    color: red;
+    height: 20px;
+    background-color: darkgray
+}
+/*Universal selector = *
+*{
+    color: aqua !important;
+}
+*/
+
+.classSelector{
+    font-size: 100px;
+}
