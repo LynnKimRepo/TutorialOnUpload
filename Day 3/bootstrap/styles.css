@@ -1,0 +1,41 @@
+.card{
+    background-color: aliceblue;
+    margin: 5px;
+}
+
+.col{
+    border: 1px solid black;
+    padding:10px;
+    background-color: aquamarine;
+
+    /*css grid*/
+    display:grid;
+}
+
+.container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px;
+}
+
+body{
+    background-color: black;
+    z-index: 2;
+}
+
+.front{
+    background-color: bisque;
+    display: inline-block;
+    z-index: 0;
+    position: absolute;
+    top:100px;
+    height: 100px;
+}
+.back{
+    background-color: aqua;
+    display: inline-block;
+    z-index: 1;
+    position: absolute;
+    top:80px;
+    height: 100px;
+}
+
