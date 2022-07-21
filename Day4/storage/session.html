@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage </title>
+</head>
+<body>
+        <div class="panel-header">Session Storage</div>
+        <div class="panel-body">
+            <input type="text"  id="txtUname" class="form-control" placeholder="Enter a name"/>
+        </div>
+        <div class="panel-footer">
+            <input type="button"  onclick="createstorage()" value="Create Storage"/>
+            <input type="button"  onclick="getStorage()" value="Read Storage"/>
+            <input type="button"  onclick="deleteStorage()" value="Delete Storage"/>
+        </div>
+
+
+        <script>
+            function createstorage(){
+                let x = document.querySelector("#txtUname").value;
+                sessionStorage.setItem("userName", x);
+            }
+
+            function getStorage(){
+                let x = sessionStorage.getItem("userName");
+                console.log(x);
+            }
+
+            function deleteStorage(){
+                sessionStorage.removeItem("userName");
+            }
+        </script>
+</body>
+</html>

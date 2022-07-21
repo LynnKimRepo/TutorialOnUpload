@@ -1,0 +1,67 @@
+* {
+    font-family: Calibri;
+}
+
+.content {
+    width: 70%;
+    position: relative;
+    margin: auto;
+}
+
+.form-control {
+    display: block;
+    padding: 5px, 10px;
+    min-width: 70%;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.panel panel-primary {
+    width: 70%;
+    position: relative;
+    margin: auto;
+}
+
+.panel {
+    margin-top: 10px;
+}
+
+.panel-primary {
+    border: 1px solid cornflowerblue;
+}
+
+.panel-header {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 5px 10px;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.btn {
+    background-color: lightgray;
+    color: white;
+    border: none;
+    padding: 5px, 10px;
+    min-width: 100px;
+    min-height: 25px;
+}
+
+.btn-primary {
+    background-color: cornflowerblue;
+}
+
+.btn-danger {
+    background-color: lightgray;
+}
+
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

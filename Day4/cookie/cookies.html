@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--document.createAttribute("class", "newclass");-->
+    <div class=""></div>
+
+<div class = "content">
+    <div class = "form-control">
+        <input type = "text" id="username" placeholder="Enter Username" class = form-control/>
+        <input type = "text" id="keyname" placeholder="Enter keyname" class = form-control/>
+    </div>
+    
+    <input type="button" value="Create Cookie" class="btn btn-primary" onclick = "createCookie()"/>
+    <input type="button" value="Read Cookie" class="btn btn-danger" onclick="readCookie()"/>
+</div>
+
+<script>
+    function createCookie(){
+        let x = document.querySelector("#username").value;
+        let y = document.querySelector("#keyname").value;
+        document.cookie =  y +"="  + btoa(x)+";expires=" + new Date(2100, 0, 1).toUTCString();
+        console.log("Cookie has been created");
+    }
+    //
+    function readCookie(){
+        let x = document.cookie.split(/=; |=/);
+        for(let j = 0; j<x.length; j+=2){
+            console.log(x.length);
+            console.log(x[j] + "  " +atob(x[j+1]));
+        }
+    }
+</script>
+
+</body>
+</html>
